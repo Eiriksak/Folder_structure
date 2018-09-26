@@ -1,0 +1,77 @@
+-- Lesestoff om strukturen --
+
+Blueprints:
+http://www.patricksoftwareblog.com/structuring-a-flask-project/
+
+Sette opp config env og autoenv:
+https://realpython.com/flask-by-example-part-1-project-setup/#config-settings
+
+Testing med pytest:
+http://flask.pocoo.org/docs/1.0/testing/
+https://docs.pytest.org/en/2.8.7/getting-started.html
+http://www.patricksoftwareblog.com/testing-a-flask-application-using-pytest/
+http://docs.aiohttp.org/en/stable/testing.html
+Kjør tester med:
+py.test
+py.test -q test_name.py. (for å kjøre spesifikk test)
+
+
+-- Pakker å laste ned --
+pip install Flask
+pip install Flask-SQLAlchemy
+pip install autoenv 
+pip install pytest
+pip install -r requirements.txt
+pip install psycopg2
+pip install requests
+
+
+---- FOR Å SETTE OPP PÅ PC ----
+
+1. Initialize a new git repo
+git init
+
+2. Sett opp virtualenv
+pip install virtualenv
+virtualenv venv
+
+3. For å aktivere venv når du skal kjøre koden og laste ned pakker
+source venv/bin/activate
+
+4. For å deaktivere virtualenv
+deactivate
+
+5. Last ned pakker gjennom pip install, f.eks for å få Flask:
+pip install Flask
+(se liste over alle som må lastes ned øverst)
+
+6. Eksportere env variables på lokal maskin
+export APP_SETTINGS="config.DevelopmentConfig"
+(kjør i cmd/terminal)
+
+7. For å Få disse til å fungere:
+ - pip install autoenv
+  echo "source `which activate.sh`" >> ~/.bashrc
+  source ~/.bashrc
+Husk å deactivate venv etterpå, gå ut av mappen, så inn igjen for å kjøre få de på.
+
+8. Sett opp database lokalt
+lag bruker: CREATE USER gruppe3 WITH PASSWORD 'root';
+se brukere; SELECT usename FROM pg_user;
+lag database med brukeren: CREATE DATABASE events OWNER gruppe3;
+se at den er der: \l
+se tables; \d 
+
+i flask:
+SQLALCHEMY_DATABASE_URI = 'postgresql://gruppe3:root@localhost/events'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+i terminal:
+export DATABASE_URL="postgresql://gruppe3:root@localhost/events"
+
+for å sette opp tables i cmd/terminal:
+python db_create.py 
+
+9.Bygg en docker
+docker build -t events .
+docker run -p 4000:80 events (http://127.0.0.1:4000)

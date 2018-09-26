@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+<h1>Website is working</h1>
+
+<form action="{{ url_for('private.index') }}" method="post">
+
+<button type="submit" name="submit_button" value="eple">Trykk for eple</button>
+
+<button type="submit" name="submit_button" value="banan">Trykk for banan</button>
+
+<button type="submit" name="submit_button" value="print_db">Trykk for å skrive ut databasen</button>
+</form>
+
+{% if bananer or epler%}
+<h4> Bananer</h4>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for bananer in bananer %}
+    <tr>
+      <td>{{ bananer.id }}</td>
+      <td>{{ bananer.type }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<h4> Epler</h4>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for epler in epler %}
+    <tr>
+      <td>{{ epler.id }}</td>
+      <td>{{ epler.amount }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<h4>Oppdaterer databasen</h4>
+            {% endif %}
+</body>
+</html>

@@ -1,0 +1,12 @@
+
+# For Mac OS
+.DS_Store
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+
+# tests
+tests
