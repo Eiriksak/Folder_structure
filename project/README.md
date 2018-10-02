@@ -17,8 +17,6 @@ If not, download on: https://www.docker.com/
 git clone https://github.com/DAT210/Table_Visualization.git
 cd into the repository location
 ```
-Copies this git repository to your local environment. Then cd into it from cmd/terminal to start running commands.
-
 
 ### Build the images and run containers
 ```shell
@@ -30,7 +28,7 @@ http://192.168.99.100:4000/    (Docker toolbox)
 
 PostgreSQL port:5432
 
-### Connect to the database container running
+### Connect to the database container
 You can bash into the postgres server currently running by entering:
 ```shell
 docker exec -it postgresql psql -U postgres
@@ -42,14 +40,13 @@ Useful commands inside the postgres server:
 \d    (List of tables inside the database)
 \q    (To exit the postgres server)
 ```
-
+### Automatically populate database from python file
 Run this to automatically create a database named "mydb" inside the postgres server. The database.py file will set up
 a database and creating tables with inserts statements found in create_tables.py file.
 ```shell
 docker-compose exec app python src/database.py 
 ```
-You can now bash into the postgres server and \c mydb.The \d  will then list the tables on mydb,
-and select * from <table name> will show all of the entries.
+You can now bash into the postgres server and \c mydb.The \d will then list the tables on mydb, and select * from [table name] will show all of the entries.
 
 
 ## Developing
