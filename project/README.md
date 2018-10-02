@@ -24,9 +24,8 @@ Copies this git repository to your local environment. Then cd into it from cmd/t
 ```shell
 docker-compose up --build
 ```
-This will build and start running two containers.  The app should be visible at: 
-
-http://127.0.0.1:4000/    (Docker) 
+This will build and start running two containers.  The app should be visible at: __
+http://127.0.0.1:4000/    (Docker) __
 http://192.168.99.100:4000/    (Docker toolbox)
 
 PostgreSQL port:5432
