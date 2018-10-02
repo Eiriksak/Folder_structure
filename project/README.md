@@ -42,11 +42,11 @@ Useful commands inside the postgres server:
 ```
 ### Automatically populate database from python file
 Run this to automatically create a database named "mydb" inside the postgres server. The database.py file will set up
-a database and creating tables with inserts statements found in create_tables.py file.
+a database and create tables with inserts statements found in create_tables.py file.
 ```shell
 docker-compose exec app python src/database.py 
 ```
-You can now bash into the postgres server and \c mydb.The \d will then list the tables on mydb, and select * from [table name] will show all of the entries.
+You can now bash into the postgres server and \c mydb.The \d will then list the tables on mydb, and <br /> select * from [table name] will show all of the entries.
 
 
 ## Developing
