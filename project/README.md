@@ -21,8 +21,8 @@ Copies this git repository to your local environment. Then cd into it from cmd/t
 ```shell
 docker-compose up --build
 ```
-This will build and start running two containers.  The app should be visible at:
-http://127.0.0.1:4000/    (Docker)
+This will build and start running two containers.  The app should be visible at: \n
+http://127.0.0.1:4000/    (Docker) \n
 http://192.168.99.100:4000/    (Docker toolbox)
 
 PostgreSQL port:5432
@@ -34,14 +34,15 @@ docker exec -it postgresql psql -U postgres
 Useful commands inside the postgres server:
 ```shell
 \l    (list of databases)
-\c <database>    (connect to a database)
+\c <database name>    (connect to a database)
 \d    (List of tables inside the database)
 ```
-Run this to populate tables inside the postgres server:
+Run this to automatically create a database named "mydb" inside the postgres server. The database.py file will set up
+a database and creating tables with inserts statements found in create_tables.py file.
 ```shell
 docker-compose exec app python src/database.py 
 ```
-
+You can now bash into the postgres server and \c mydb. \d lists the tables on mydb, and select * from <table name> will show all of the entries.
 
 
 ## Developing
